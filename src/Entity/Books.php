@@ -69,12 +69,12 @@ class Books
         return $this;
     }
 
-    public function getauteur(): ?Auteur
+    public function getAuteur(): ?Auteur
     {
         return $this->auteur;
     }
 
-    public function setauteur(?Auteur $auteur): static
+    public function setAuteur(?Auteur $auteur): static
     {
         $this->auteur = $auteur;
 

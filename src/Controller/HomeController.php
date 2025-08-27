@@ -23,10 +23,10 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/autor_liste', name: 'app_home_list_autor')]
-    public function listAutor(Auteur $auteur, BooksRepository $bookRepository): Response
+    #[Route('/{id}/auteur_liste', name: 'app_home_list_auteur')]
+    public function listAuteur(Auteur $auteur, BooksRepository $bookRepository): Response
     {
-        return $this->render('home/listAutor.html.twig', [
+        return $this->render('home/listAuteur.html.twig', [
             'auteur' => $auteur
         ]);
     }
