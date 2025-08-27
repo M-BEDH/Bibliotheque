@@ -17,9 +17,9 @@
             {% for auteur in auteurs %}
             <div class="listIndex">
                 <h4>{{ auteur.firstName }} {{ auteur.lastName }}</h4>
-                 {# <span>Nombre de livres : {{ auteur.books|length }}</span> #}
+                 <span>Nombre de livres : {{ auteur.books|length }}</span>
                 <a class="btn btn-outline-primary" href="{{ path('app_home_list_auteur', { id: auteur.id }) }}">Voir les
-                    livres de cet auteur</a><br>
+                    livres de l'auteur</a><br>
             </div>
             {% endfor %}
         </div>
