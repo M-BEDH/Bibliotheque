@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+   {% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Modifier l'auteur{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'auteur</h1>
+
+    <div class="containerForm">
+        {{ include('auteur/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+        <a class="btn btn-outline-secondary centered" href="{{ path('app_auteur_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}

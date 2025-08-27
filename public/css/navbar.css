@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #acd6ff !important;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: #000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+    background-color: #053970;
+    color: #fff !important;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    background-color: #acd6ff71;
+    border: 1px solid #acd6ff;
+}
+
+.dropdown-item:hover {
+    background-color: #053970 !important;
+    color: #fff;
+}

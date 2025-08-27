@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+   {% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Auteurs{% endblock %}
+
+{% block body %}
+    <h1>Auteurs</h1>
+
+    <table class="table container bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Date de naissance</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteurs %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.firstName }}</td>
+                <td>{{ auteur.lastName }}</td>
+                <td>{{ auteur.born ? auteur.born|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_auteur_show', {'id': auteur.id}) }}">voir les détails</a>
+                    <a class="btn btn-outline-warning" href="{{ path('app_auteur_edit', {'id': auteur.id}) }}">modifier</a>
+                    <a onclick="return confirm('Etes-vous sûr de vouloir supprimer cet auteur ?');" class="btn btn-outline-danger" href="{{ path('app_auteur_delete', {'id': auteur.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_auteur_new') }}">Créer nouveau</a>
+{% endblock %}

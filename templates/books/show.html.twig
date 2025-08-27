@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Détails du livre{% endblock %}
+
+{% block body %}
+    <h1>Détails du livre</h1>
+
+      <div class="category-item">
+    <table class="table bordered">
+        <tbody>
+             <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+                <td>
+                    <a class="btn btn-outline-warning" href="{{ path('app_books_edit', {'id': book.id}) }}">modifier</a>
+                    <a onclick="return confirm('Etes-vous sûr de vouloir supprimer ce livre ?');" class="btn btn-outline-danger" href="{{ path('app_books_delete', {'id': book.id}) }}">supprimer</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ book.category.name }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ book.title }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Parution</th>
+                <td>{{ book.parution ? book.parution|date('Y-m-d') : '' }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+<a class="btn btn-secondary" href="{{ path('app_books_index') }}">Retour à la liste</a>
+  
+
+  
+{% endblock %}

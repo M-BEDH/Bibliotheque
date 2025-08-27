@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Nouveau livre{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau livre</h1>
+
+    <div class="containerForm">
+        {{ include('books/_form.html.twig') }}
+    </div>
+
+    <a class="btn btn-outline-secondary centered" href="{{ path('app_books_index') }}">Retour à la liste</a>
+{% endblock %}

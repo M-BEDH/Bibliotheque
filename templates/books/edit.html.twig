@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Modifier le livre{% endblock %}
+
+{% block body %}
+    <h1>Modifier le livre</h1>
+
+    <div class="containerForm">
+    {{ include('books/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+    <a class="btn btn-outline-secondary centered" href="{{ path('app_books_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}

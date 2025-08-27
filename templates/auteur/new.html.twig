@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block title %}Nouvel auteur{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouvel Auteur</h1>
+
+    <div class="containerForm">
+    {{ include('auteur/_form.html.twig') }}
+    </div>
+
+    <a class="btn btn-outline-secondary centered" href="{{ path('app_auteur_index') }}">Retour à la liste</a>
+{% endblock %}

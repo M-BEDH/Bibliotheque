@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block title %}Accueil Bibliothèque{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Bibliothèque</h1>
+    <p style="color: #f86f3d;">Bienvenue sur le site de gestion de votre bibliothèque.</p>
+
+    <div class="containerAccueil">
+
+        <div>
+            <h2 class="text-primary">Liste des auteurs</h2>
+            {% for auteur in auteurs %}
+            <div class="listIndex">
+                <h4>{{ auteur.firstName }} {{ auteur.lastName }}</h4>
+                 <span>Nombre de livres : {{ auteur.books|length }}</span> 
+                <a class="btn btn-outline-primary" href="{{ path('app_home_list_autor', { id: auteur.id }) }}">Voir les
+                    livres de cet auteur</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div>
+        <h2 class="text-secondary">Liste des categories</h2>
+        <div class="listIndex">
+            {% for category in categories %}
+            <h4>{{ category.name }}</h4>
+            <a class="btn btn-outline-secondary" href="{{ path('app_home_list_category', { id: category.id }) }}">Voir les
+                livres de cette catégorie</a><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Livres{% endblock %}
+
+{% block body %}
+    <h1>Livres</h1>
+
+    <table class="table bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Parution</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.parution ? book.parution|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_books_show', {'id': book.id}) }}">voir les détails</a>
+                    <a class="btn btn-outline-warning" href="{{ path('app_books_edit', {'id': book.id}) }}">modifier</a>
+                    <a onclick="return confirm('Etes-vous sûr de vouloir supprimer ce livre ?');" class="btn btn-outline-danger" href="{{ path('app_books_delete', {'id': book.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" ="{{ path('app_books_new') }}">Créer nouveau</a>
+{% endblock %}

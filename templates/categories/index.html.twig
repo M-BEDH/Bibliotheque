@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+           	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+    <h1>Categories</h1>
+
+    <table class="table bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_categories_show', {'id': category.id}) }}">voir les détails</a>
+                    <a class="btn btn-outline-warning" href="{{ path('app_categories_edit', {'id': category.id}) }}">modifier</a>
+                    <a onclick="return confirm('Etes-vous sûr de vouloir supprimer cette catégorie ?');" class="btn btn-outline-danger" href="{{ path('app_categories_delete', {'id': category.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_categories_new') }}">Créer nouveau</a>
+{% endblock %}

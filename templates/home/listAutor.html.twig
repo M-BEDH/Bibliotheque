@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block title %}Liste livres{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    
+    <h1>Liste des livres de {{ auteur.firstName }} {{ auteur.lastName }}</h1>
+       <table class="table bordered">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Année de parution</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in auteur.books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.parution | date("Y") }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock %}
